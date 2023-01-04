@@ -1,0 +1,66 @@
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./Poppins-Medium.eot");
+  src: local("Poppins Medium"), local("Poppins-Medium"),
+    url("./Poppins-Medium.eot?#iefix") format("embedded-opentype"),
+    url("./Poppins-Medium.woff2") format("woff2"),
+    url("./Poppins-Medium.woff") format("woff"),
+    url("./Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap,
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./Poppins-Regular.eot");
+  src: local("Poppins Regular"), local("Poppins-Regular"),
+    url("./Poppins-Regular.eot?#iefix") format("embedded-opentype"),
+    url("./Poppins-Regular.woff2") format("woff2"),
+    url("./Poppins-Regular.woff") format("woff"),
+    url("./Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap,
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./Poppins-SemiBold.eot");
+  src: local("Poppins SemiBold"), local("Poppins-SemiBold"),
+    url("./Poppins-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("./Poppins-SemiBold.woff2") format("woff2"),
+    url("./Poppins-SemiBold.woff") format("woff"),
+    url("./Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap,
+}
+
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./Poppins-MediumItalic.eot");
+  src: local("Poppins Medium Italic"), local("Poppins-MediumItalic"),
+    url("./Poppins-MediumItalic.eot?#iefix") format("embedded-opentype"),
+    url("./Poppins-MediumItalic.woff2") format("woff2"),
+    url("./Poppins-MediumItalic.woff") format("woff"),
+    url("./Poppins-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap,
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./Poppins-Bold.eot");
+  src: local("Poppins Bold"), local("Poppins-Bold"),
+    url("./Poppins-Bold.eot?#iefix") format("embedded-opentype"),
+    url("./Poppins-Bold.woff2") format("woff2"),
+    url("./Poppins-Bold.woff") format("woff"),
+    url("./Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap,
+}

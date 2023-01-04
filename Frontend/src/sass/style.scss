@@ -1,0 +1,106 @@
+@import "./fonts";
+@import "./bootstrap";
+@import "../assets/fonts/poppins/poppins.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pe-cursor {
+  cursor: pointer;
+}
+
+:root {
+  --theme: #fff;
+}
+
+@mixin img {
+  object-fit: cover;
+  object-position: center;
+}
+// logo
+.w-80px {
+  width: 80px;
+  @include img();
+}
+
+.w-50px {
+  width: 50px;
+  @include img();
+}
+
+.icon-25 {
+  @include img();
+  max-height: 25px;
+  max-width: 25px;
+}
+
+.w-25px {
+  width: 25px;
+  height: 25px;
+}
+
+.w-20px {
+  width: 20px;
+  height: 20px;
+}
+
+.mw-150px {
+  max-width: 150px;
+}
+
+.ratio-1x1 {
+  aspect-ratio: 1/1;
+}
+.app-loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-pdf__Page__canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.MuiTablePagination-selectLabel,
+.MuiTablePagination-displayedRows {
+  margin-bottom: 0px !important;
+}
+
+.alert-overlay {
+  backdrop-filter: blur(5px);
+  background-color: transparent !important;
+  z-index: 10000 !important;
+}
+
+.swal2-popup {
+  font-family: "Poppins", sans-serif
+}
+
+#react-confirm-alert {
+  z-index: 1000;
+}
+
+.react-confirm-alert > div {
+  background-color: transparent !important;
+}
+
+// Sweet ALert Styling
+.sweet-alert p {
+  justify-content: end !important;
+}
+@media (max-width: 600px) {
+  .w-sm-100 {
+    width: calc(100% - 12px) !important;
+  }
+}
