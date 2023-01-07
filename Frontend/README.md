@@ -1,6 +1,6 @@
 # Frontend aplikace
 
-###Použité technologie
+### Použité technologie
 - React JS
 - Redux
 - Redux Toolkit
