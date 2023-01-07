@@ -8,6 +8,7 @@
 - Firebase Firestore
 - Firebase Hosting
 - Firebase Storage
+- SendGrid
 
 ## Struktura
 
