@@ -1,16 +1,19 @@
 # Frontend aplikace
 
 ### Použité technologie
+- Bootstrap
+- Chart.js
+- Material UI
+- Moment.js
 - React JS
+- react-big-calendar
+- react-signature-canvas
 - Redux
 - Redux Toolkit
-- Bootstrap
-- Material UI
-- Sass
-- Yup
 - PDF-Lib
+- Sass
 - SendGrid
-- Chart.js
+- Yup
 
 ## Struktura
 
