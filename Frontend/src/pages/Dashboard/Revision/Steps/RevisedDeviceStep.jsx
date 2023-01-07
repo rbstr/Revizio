@@ -47,6 +47,12 @@ import moment from "moment";
 import { getCommonDefectsAsyncThunk } from "redux/slices/defectSlice";
 import { TheatersOutlined } from "@mui/icons-material";
 
+
+/**
+  * Komponenta pro základní informace o zařízení/spotřebiči
+  * @return {} komponenta
+  */
+
 export const RevisedDeviceStep = ({
   type,
   activeStep,

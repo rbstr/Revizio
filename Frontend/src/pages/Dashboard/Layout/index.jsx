@@ -8,6 +8,13 @@ import { Sidebar } from "components/Layout/sidebar";
 import { BottomBar } from "components/Layout/bottombar";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+
+/**
+  * Definice zobrazení stránky
+  * @return {}
+  */
+
+
 export const Layout = () => {
   const tableScreen = useMediaQuery("(max-width:900px)");
   const { sidebarWidth } = useSidebarContext();

@@ -7,6 +7,13 @@ import styled from "@emotion/styled";
 import { TickIcon } from "utils/icons";
 
 
+/**
+  * Stepper u vytváření revize
+  *
+  * @param {props} x 
+  * @return {} komponenta
+  */
+
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 20,

@@ -5,6 +5,12 @@ import { useTheme } from "@emotion/react";
 import { useMediaQuery } from "@mui/material";
 import { InputAdornment } from '@mui/material';
 
+/**
+  * Komponenta pro textové pole
+  *
+  * @return {} komponenta
+  */
+
 export const InputField = forwardRef((props, ref) => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const theme = useTheme();

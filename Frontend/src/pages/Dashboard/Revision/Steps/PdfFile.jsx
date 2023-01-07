@@ -38,6 +38,13 @@ import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 
+/**
+  * Komponenta pro export revize
+  * @param {type} x 
+  * @param {handleNext} x
+  * @return {} komponenta
+  */
+
 function BootstrapDialogTitle({ open }) {
   return (
     <BlurryDialogModal fullWidth maxWidth={"xs"} open={open}>
@@ -112,8 +119,9 @@ export const PdfFile = ({ handleNext, type }) => {
   const { profile: technician } = useSelector((state) => state.auth);
   const checkString = (e) =>
     e ? (typeof e === "string" ? e : e.toString()) : e == false ? "" : "";
-  //console.log("pdfRevisionData", pdfRevisionData);
-  // ............................................................load record pdf
+ 
+
+  // Načtení tlakové zkoušky
   async function loadPdfpressure_template(_pdfString) {
     const {
       techInformation,
@@ -173,7 +181,8 @@ export const PdfFile = ({ handleNext, type }) => {
 
     // Get the width and height of the first page
     const { width, height } = firstPage.getSize();
-    // EVIDANCE NUMBER
+
+    // Evidenční číslo
     firstPage.drawText(checkString(evidenceNumber), {
       x: width - 207,
       y: height - 85,
@@ -181,7 +190,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
-    // DATE OF REVISION
+    // Datum provedení
     firstPage.drawText(moment().format("DD. MM. YYYY"), {
       x: width - 207,
       y: height - 120,
@@ -189,7 +198,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
-    // CLIENT NAME
+    // Jméno klienta
     firstPage.drawText(
       `${checkString(client?.firstName)} ${checkString(client?.lastName)}`,
       {
@@ -200,7 +209,7 @@ export const PdfFile = ({ handleNext, type }) => {
         font: poppinsBold,
       }
     );
-    // ADDRESS
+    // Adresa klienta
     firstPage.drawText(
       checkString(`${client?.street}\n${client?.zipCode}, ${client?.city}`),
       {
@@ -212,6 +221,7 @@ export const PdfFile = ({ handleNext, type }) => {
         lineHeight: 15,
       }
     );
+    // Montážní práce
     firstPage.drawText(
       checkString(assemblyBy),
       {
@@ -222,6 +232,7 @@ export const PdfFile = ({ handleNext, type }) => {
         color: rgb(0, 0, 0),
       }
     );
+    // Technické hodnoty zařízení
     firstPage.drawText(checkString(technicalValueOfDevice), {
       x: 55,
       y: height - 410,
@@ -230,6 +241,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
       maxWidth: width - 110,
     });
+    // Zkušební tlak pevnostní zkoušky
     firstPage.drawText(checkString(strengthTestedPressure) + " kPa", {
       x: 210,
       y: height - 523,
@@ -237,6 +249,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppins,
       color: rgb(0, 0, 0),
     });
+    // Délka měření
     firstPage.drawText(checkString(strengthDuration) + " min", {
       x: 340,
       y: height - 523,
@@ -252,6 +265,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppins,
       color: rgb(1, 1, 1),
     });
+    // údaje o měřícím zařízení
     firstPage.drawText(`${technician?.pressureGaugeName} - v. č. ${technician?.pressureGaugeSerialNumber}`, {
       x: 55,
       y: height - 582,
@@ -261,6 +275,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsBold,
     });
 
+    // Zkušební tlak zkoušky těsnosti
     firstPage.drawText(checkString(leakTestedPressure) + " kPa", {
       x: 210,
       y: height - 541,
@@ -268,6 +283,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppins,
       color: rgb(0, 0, 0),
     });
+    // Délka měření
     firstPage.drawText(checkString(leakDuration) + " min", {
       x: 340,
       y: height - 541,
@@ -276,6 +292,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
+    // Výsledek testu těsnosti
     firstPage.drawText(leakTestResult ? "Vyhovující" : "Nevyhovující", {
       x: 439,
       y: height - 541,
@@ -283,6 +300,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppins,
       color: rgb(0, 0, 0),
     });
+    // Výsledek testu pevnosti
     firstPage.drawText(strengthResult ? "Vyhovující" : "Nevyhovující", {
       x: 439,
       y: height - 523,
@@ -290,6 +308,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppins,
       color: rgb(0, 0, 0),
     });
+    // Celkový výsledek
     firstPage.drawText(overallRating ? "Vyhovující" : "Nevyhovující", {
       x: 55,
       y: height - 625,
@@ -297,6 +316,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsBold,
       color: rgb(0, 0, 0),
     });
+    // Jméno technika
     firstPage.drawText(
       checkString(technician?.title + " ") +
       checkString(technician?.firstName) +
@@ -310,6 +330,7 @@ export const PdfFile = ({ handleNext, type }) => {
         color: rgb(0, 0, 0),
       }
     );
+    // číslo ověření
     firstPage.drawText(checkString(technician?.certificate), {
       x: width - 207,
       y: height - 223,
@@ -317,6 +338,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
+    // číslo oprávnění
     firstPage.drawText(checkString(technician?.authorization), {
       x: width - 207,
       y: height - 260,
@@ -325,6 +347,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
+    // místo působení
     firstPage.drawText(checkString(technician?.executingPlace) + ", dne " + moment().format("DD. MM. YYYY"), {
       x: 55,
       y: height - 760,
@@ -345,8 +368,8 @@ export const PdfFile = ({ handleNext, type }) => {
     setPDFString(pdfString);
     return pdfDoc;
   }
-  // ............................................................load record pdf
-
+  
+  // Načtení výchozí revize
   async function loadPdfInitial() {
     const {
       techInformation,
@@ -409,7 +432,7 @@ export const PdfFile = ({ handleNext, type }) => {
     }
     const jpgDims_stamp = jpgImage_stamp.scale(0.25);
 
-    // EVIDENCE NUMBER
+    // Evidenční číslo
     firstPage.drawText(evidenceNumber, {
       x: width - 208,
       y: height - 83,
@@ -417,7 +440,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
-    // DATE OF REVISION
+    // Datum
     firstPage.drawText(moment().format("DD. MM. YYYY"), {
       x: width - 208,
       y: height - 118,
@@ -425,7 +448,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
-    // CLIENT NAME
+    // Jméno klienta
     firstPage.drawText(
       `${checkString(client?.firstName)} ${checkString(client?.lastName)}`,
       {
@@ -436,7 +459,7 @@ export const PdfFile = ({ handleNext, type }) => {
         font: poppinsSemiBold,
       }
     );
-    // ADDRESS
+    // Adresa klienta
     firstPage.drawText(
       checkString(`${client?.street}\n${client?.zipCode}, ${client?.city}`),
       {
@@ -448,6 +471,7 @@ export const PdfFile = ({ handleNext, type }) => {
         lineHeight: 15,
       }
     );
+    // zúčaastněná osoba
     firstPage.drawText(checkString(client?.ownerAttended), {
       x: 55,
       y: height - 253,
@@ -456,9 +480,8 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
-    //console.clear();
-    //console.log(pdfRevisionData);
-
+    
+    // jméno technika
     firstPage.drawText(
       checkString(technician?.title) +
       " " +
@@ -473,6 +496,7 @@ export const PdfFile = ({ handleNext, type }) => {
         color: rgb(0, 0, 0),
       }
     );
+    // oprávnění technika
     firstPage.drawText(checkString(technician?.certificate), {
       x: width - 208,
       y: height - 222,
@@ -480,6 +504,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
+    // ověření technika
     firstPage.drawText(checkString(technician?.authorization), {
       x: width - 208,
       y: height - 256,
@@ -487,6 +512,8 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
+
+    // celkové hodnocení
     firstPage.drawText(
       deviceSafe
         ? "Zařízení je schopno bezpečného a spolehlivého provozu."
@@ -500,6 +527,7 @@ export const PdfFile = ({ handleNext, type }) => {
       }
     );
 
+    // místo působení
     firstPage.drawText(checkString(technician?.executingPlace) + ", " + moment().format("DD.MM.YYYY"), {
       x: 55,
       y: height - 690,
@@ -508,7 +536,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
-    // STAMP
+    // razítko
     firstPage.drawImage(jpgImage_stamp, {
       x: width - 245,
       y: height - 780,
@@ -516,15 +544,17 @@ export const PdfFile = ({ handleNext, type }) => {
       height: (100 * jpgDims_stamp.height) / jpgDims_stamp.width,
     });
 
-    // Sign
+    // podpis
     firstPage.drawImage(jpgImage, {
       x: width - 135,
       y: height - 780,
       width: jpgDims.width,
       height: jpgDims.height,
     });
-    // ...................page 2
+    
+    // ...................strana 2
 
+    // způsob zapojení
     secondPage.drawText(checkString(connectionMethod), {
       x: 55,
       y: height - 185,
@@ -535,6 +565,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppins,
     });
     
+    // název zařízení
     secondPage.drawText(checkString(deviceName), {
       x: 55,
       y: height - 389,
@@ -544,7 +575,8 @@ export const PdfFile = ({ handleNext, type }) => {
       maxWidth: 130,
       lineHeight: 12,
     });
-    // DATE OF REVISION
+
+    // umístění zařízení
     secondPage.drawText(checkString(devicePosition), {
       x: 197,
       y: height - 389,
@@ -552,7 +584,8 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
-    // DATE OF REVISION
+
+    // typ závitu
     secondPage.drawText(checkString(threadType), {
       x: 336,
       y: height - 389,
@@ -561,6 +594,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
+    // maximální spotřeba zemního plynu
     secondPage.drawText(checkString(totalMaxConsumptionOfNaturalGas), {
       x: 458,
       y: height - 389,
@@ -580,6 +614,8 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(1, 1, 1),
       // borderColor: rgb(0.75, 0.2, 0.2),
     });
+
+    //předchozí revize
     secondPage.drawText(
       `Tlaková zkouška - viz zápis o tlakové zkoušce č. ${pdfRevisionData.performedTests.evidenceNumber
       } ze dne ${moment().format("DD. MM. YYYY")} - výsledek zkoušky - ${pdfRevisionData.performedTests.overallRating
@@ -599,6 +635,7 @@ export const PdfFile = ({ handleNext, type }) => {
       }
     );
 
+    // předchozí revize
     secondPage.drawText(checkString(previousRevision),
       {
         x: 55,
@@ -613,7 +650,7 @@ export const PdfFile = ({ handleNext, type }) => {
       }
     );
 
-
+    // závady bránící provozu
     secondPage.drawText(checkString(defectsText(returnDefectDescription(majorDefects))), {
       x: 55,
       y: height - 626,
@@ -623,6 +660,8 @@ export const PdfFile = ({ handleNext, type }) => {
       maxWidth: 300,
       lineHeight: 15,
     });
+
+    //závady nebránící provozu
     secondPage.drawText(checkString(defectsText(returnDefectDescription(minorDefects))), {
       x: 55,
       y: height - 728,
@@ -633,6 +672,7 @@ export const PdfFile = ({ handleNext, type }) => {
       lineHeight: 15,
     });
 
+    // lhůta k odstranění závad
     if (removeDefectsBefore){
       secondPage.drawText(checkString("Datum k odstranění závad"), {
         x: 400,
@@ -652,7 +692,8 @@ export const PdfFile = ({ handleNext, type }) => {
     }
 
 
-    // ...................page 3
+    // ...................strana 3
+
     thirdPage.drawRectangle({
       x: 55,
       width: width - 110,
@@ -663,6 +704,8 @@ export const PdfFile = ({ handleNext, type }) => {
       maxWidth: width - 110,
       font: poppinsBold,
     });
+
+    // další revize
     thirdPage.drawText(
       `Zápis o tlakové zkoušce č. ${pdfRevisionData.performedTests.evidenceNumber
       } ze dne ${moment().format("DD. MM. YYYY")} - provedl RT ${checkString(technician.title)} ${technician.firstName} ${technician.lastName
@@ -677,7 +720,7 @@ export const PdfFile = ({ handleNext, type }) => {
       }
     );
 
-    // OTHER INFORMATION
+    // doplňující informace
     thirdPage.drawText(
       checkString(pdfRevisionData.additionalInformation.otherInformation),
       {
@@ -689,7 +732,8 @@ export const PdfFile = ({ handleNext, type }) => {
         maxWidth: width - 110,
       }
     );
-    // next rev
+
+    // datum další revize
     thirdPage.drawText(moment(nextRevisionDate).format("DD. MM. YYYY"), {
       x: 55,
       y: height - 755,
@@ -697,7 +741,8 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppins,
       color: rgb(0, 0, 0),
     });
-    // technician
+
+    // jméno technika
     thirdPage.drawText(
       checkString(technician?.title + " ") +
       checkString(technician?.firstName) +
@@ -724,8 +769,8 @@ export const PdfFile = ({ handleNext, type }) => {
     }
     return pdfDoc;
   }
-  // ............................................................load record pdf
-
+  
+  // Načtení provozní revize
   async function loadPdfService() {
     const {
       techInformation,
@@ -1109,8 +1154,8 @@ export const PdfFile = ({ handleNext, type }) => {
     setPDFString(pdfString);
     return pdfDoc;
   }
-  // ............................................................load record pdf
-
+  
+  // Načtení výchozí revize se správcem objektu
   async function loadPdfInitial_obj() {
     const {
       techInformation,
@@ -1170,7 +1215,8 @@ export const PdfFile = ({ handleNext, type }) => {
       jpgImage_stamp = await pdfDoc.embedJpg(jpgImageBytes_stamp);
     }
     const jpgDims_stamp = jpgImage_stamp.scale(0.25);
-    // EVIDENCE NUMBER
+
+    // Evidenční číslo
     firstPage.drawText(evidenceNumber, {
       x: width - 207,
       y: height - 73,
@@ -1178,7 +1224,8 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
-    // DATE OF REVISION
+
+    // datum provedení
     firstPage.drawText(moment().format("DD. MM. YYYY"), {
       x: width - 207,
       y: height - 108,
@@ -1186,7 +1233,8 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
-    // CLIENT NAME
+
+    // jméno klienta
     firstPage.drawText(
       `${checkString(client?.firstName)} ${checkString(client?.lastName)}`,
       {
@@ -1197,7 +1245,8 @@ export const PdfFile = ({ handleNext, type }) => {
         font: poppinsSemiBold,
       }
     );
-    // ADDRESS
+
+    // adresa klienta
     firstPage.drawText(
       checkString(`${client?.street}\n${client?.zipCode}, ${client?.city}`),
       {
@@ -1210,6 +1259,7 @@ export const PdfFile = ({ handleNext, type }) => {
       }
     );
     
+    // zúčastněná osoba
     firstPage.drawText(checkString(client?.ownerAttended), {
       x: 55,
       y: height - 277,
@@ -1218,6 +1268,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
+    // správce objektu
     firstPage.drawText(checkString(client?.objectManagerName), {
       x: 55,
       y: height - 243,
@@ -1226,6 +1277,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
+    // umístění bytu
     firstPage.drawText(checkString(client?.flatPosition), {
       x: 212,
       y: height - 243,
@@ -1234,9 +1286,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
-    //console.clear();
-    //console.log(pdfRevisionData);
-
+    // jméno technika
     firstPage.drawText(
       checkString(technician?.title) +
       " " +
@@ -1251,6 +1301,8 @@ export const PdfFile = ({ handleNext, type }) => {
         color: rgb(0, 0, 0),
       }
     );
+
+    // oprávnění technika
     firstPage.drawText(checkString(technician?.certificate), {
       x: width - 207,
       y: height - 212,
@@ -1258,6 +1310,7 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
+    //osvědčení technika
     firstPage.drawText(checkString(technician?.authorization), {
       x: width - 207,
       y: height - 245,
@@ -1265,6 +1318,8 @@ export const PdfFile = ({ handleNext, type }) => {
       font: poppinsSemiBold,
       color: rgb(0, 0, 0),
     });
+
+    //celkové posouzení
     firstPage.drawText(
       deviceSafe
         ? "Zařízení je schopno bezpečného a spolehlivého provozu."
@@ -1278,6 +1333,7 @@ export const PdfFile = ({ handleNext, type }) => {
       }
     );
 
+    //místo působení
     firstPage.drawText(checkString(technician?.executingPlace) + ", " + moment().format("DD.MM.YYYY"), {
       x: 55,
       y: height - 698,
@@ -1286,7 +1342,7 @@ export const PdfFile = ({ handleNext, type }) => {
       color: rgb(0, 0, 0),
     });
 
-    // STAMP
+    // razítko
     firstPage.drawImage(jpgImage_stamp, {
       x: width - 245,
       y: height - 785,
@@ -1294,14 +1350,14 @@ export const PdfFile = ({ handleNext, type }) => {
       height: (100 * jpgDims_stamp.height) / jpgDims_stamp.width,
     });
 
-    // Sign
+    // podpis
     firstPage.drawImage(jpgImage, {
       x: width - 135,
       y: height - 775,
       width: jpgDims.width,
       height: jpgDims.height,
     });
-    // ...................page 2
+    // ...................strana 2
 
     secondPage.drawText(checkString(connectionMethod), {
       x: 55,
@@ -1503,8 +1559,8 @@ export const PdfFile = ({ handleNext, type }) => {
   }
   
 
-  // ............................................................load record pdf
 
+  // Načtení provozní revize se správcem objektu
   async function loadPdfService_obj() {
     const {
       techInformation,
@@ -1911,7 +1967,7 @@ export const PdfFile = ({ handleNext, type }) => {
         loadPdfInitial();
       }
     } else {
-      // if you want to show just selected service pdf according to objectmanager name
+      // Pokud správce objektu
       if (pdfRevisionData?.basicInformation?.objectManagerName) {
         loadPdfService_obj();
       } else {

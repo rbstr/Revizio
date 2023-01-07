@@ -14,6 +14,14 @@ import { loginSchema } from "schema";
 import { useTheme } from "@emotion/react";
 import { useMediaQuery } from "@mui/material";
 
+
+/**
+  * Komponenta pro přihlášení
+  *
+  * @return {} komponenta
+  */
+
+
 export const Login = () => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const theme = useTheme();

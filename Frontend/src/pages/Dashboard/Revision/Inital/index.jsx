@@ -12,6 +12,13 @@ import { PdfFile } from "../Steps/PdfFile";
 import { CompleteRevision } from "../Steps/CompleteRevision";
 import { useTheme } from "@emotion/react";
 
+
+/**
+  * Komponenta výchozí revize
+  * @return {} komponenta
+  */
+
+
 export const RevisionInitial = () => {
   const theme = useTheme();
   const dispatch = useDispatch();

@@ -10,6 +10,22 @@ import { toast } from "react-toastify";
 import Divider from "@mui/material/Divider";
 import { useTheme } from "@emotion/react";
 
+/**
+  * Dropdown komponenta = rozbalení možností
+  *
+  * @param {options} x 
+  * @param {title} x 
+  * @param {id} x 
+  * @param {icon} x 
+  * @param {children} x 
+  * @param {maxWidth} x 
+  * @param {onOpen} x 
+  * @param {textAlign} x
+  * @param {getValues} x  
+  * @param {names} x 
+  * @return {} komponenta
+  */
+
 export const Dropdown = ({
   options,
   title,

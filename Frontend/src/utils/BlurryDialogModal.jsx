@@ -3,6 +3,11 @@ import { styled } from "@mui/system";
 import { Dialog } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 
+/**
+  * Komponenta pro dialog s rozmazaným pozadím
+  *
+  * @return {} komponenta
+  */
 
 
 const BlurryDialog = styled(Dialog)(({ theme }) => ({

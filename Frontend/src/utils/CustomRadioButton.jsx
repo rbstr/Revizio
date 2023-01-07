@@ -3,6 +3,12 @@ import { FormControlLabel, Radio } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import { useMediaQuery } from "@mui/material";
 
+/**
+  * Komponenta pro vlastní radio button
+  *
+  * @return {} komponenta
+  */
+
 export const CustomRadioButton = forwardRef((props, ref) => {
   const theme = useTheme();
   const mobileScreen = useMediaQuery("(max-width:600px)");

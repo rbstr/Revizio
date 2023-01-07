@@ -8,8 +8,12 @@ import fileDownload from "js-file-download";
 import moment from "moment";
 import { toast } from "react-toastify";
 
+/**
+  * Slice pro revize
+  * @return {} slice
+  */
 
-
+// Uložení podpisu
 export const saveSignature = async ({ img, }) => {
   //console.log('going to upload image')
   const mountainsRef = ref(storage, `signature/${Date.now()}`);
@@ -18,6 +22,8 @@ export const saveSignature = async ({ img, }) => {
 
   return (await getDownloadURL(mountainsRef))
 }
+
+// Uložení PDF
 export const savePdf = async ({ type, pdfString }) => {
   if (!pdfString) return null
   const mountainsRef = ref(storage, `pdf-${type}-${Date.now()}`);
@@ -25,6 +31,8 @@ export const savePdf = async ({ type, pdfString }) => {
   //console.log('uploadedImage', uploadedImage)
   return (await getDownloadURL(mountainsRef));
 }
+
+// Uložení klienta
 export const saveClient = async ({ data, uid }) => {
   const docRef = collection(firestore, "client");
   const q = query(docRef, where("email", "==", data.email), where("userId", "==", uid));
@@ -54,7 +62,8 @@ export const saveClient = async ({ data, uid }) => {
     return docRef.id;
   }
 }
-// save test
+
+// Uložení měření
 export const saveTest = async ({ data, uid }) => {
   if (data) {
     const docRef = doc(collection(firestore, "performedTests"));
@@ -69,7 +78,7 @@ export const saveTest = async ({ data, uid }) => {
   }
 }
 
-// create revision async thunk
+// Vytvoření revize
 export const createRevisionAsyncThunk = createAsyncThunk(
   "revision/createRevisionAsyncThunk",
   catchAsync(async ({ type, handleNext, pdfString, PDFPressureTemplateString }, { getState }) => {
@@ -120,7 +129,9 @@ export const createRevisionAsyncThunk = createAsyncThunk(
     return savedDoc;
   })
 );
-// create revision async thunk
+
+
+// Stažení PDF revize
 export const downloadRevisionPdfFileAsyncThunk = createAsyncThunk(
   "revision/downloadRevisionPdfFileAsyncThunk",
   catchAsync(async ({ url, fileName }, { getState }) => {
@@ -134,7 +145,7 @@ export const downloadRevisionPdfFileAsyncThunk = createAsyncThunk(
   })
 );
 
-// get revision for id async thunk
+// Get revize pro přehled
 export const dashboardAsyncThunk = createAsyncThunk(
   "revision/dashboardAsyncThunk",
   catchAsync(async (_, { getState }) => {
@@ -142,7 +153,8 @@ export const dashboardAsyncThunk = createAsyncThunk(
     return data ?? initialState.analytics;
   })
 );
-// get revision for id async thunk
+
+// Get revize
 export const getRevisionAsyncThunk = createAsyncThunk(
   "revision/getRevisionAsyncThunk",
   catchAsync(async ({ id }, { getState }) => {
@@ -155,7 +167,8 @@ export const getRevisionAsyncThunk = createAsyncThunk(
     throw ("Mám potíže získat revizi.");
   })
 );
-// get revisions async thunk
+
+// Get revize z id
 export const getRevisionsbyIdAsyncThunk = createAsyncThunk(
   "revision/getRevisionsbyIdAsyncThunk",
   catchAsync(async ({ perPage, id, first }, { getState }) => {
@@ -195,7 +208,8 @@ export const getRevisionsbyIdAsyncThunk = createAsyncThunk(
     };
   })
 );
-// get revisions async thunk
+
+// Get revize
 export const getRevisionsAsyncThunk = createAsyncThunk(
   "revision/getRevisionsAsyncThunk",
   catchAsync(async ({ perPage, search, first }, { getState }) => {
@@ -261,7 +275,7 @@ export const getRevisionsAsyncThunk = createAsyncThunk(
   })
 );
 
-// logout async thunk
+// Odstranění revize
 export const deleteRevisionAsyncThunk = createAsyncThunk(
   "revision/deleteRevisionAsyncThunk",
   catchAsync(async ({ id, navigate, fetchList, clientId, callBack }, { dispatch, getState }) => {

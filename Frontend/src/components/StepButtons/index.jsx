@@ -6,6 +6,12 @@ import { IconButton, Typography, useMediaQuery } from "@mui/material";
 import { TheatersOutlined } from "@mui/icons-material";
 
 
+/**
+  * Tlačítka pro pohyb u vytváření revize
+  *
+  * @return {} komponenta
+  */
+
 export const StepButtons = ({
   activeStep,
   handleBack,

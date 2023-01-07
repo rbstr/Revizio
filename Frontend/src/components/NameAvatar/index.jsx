@@ -4,6 +4,13 @@ import { useTheme } from "@emotion/react";
 import { useThemeContext } from "context/ThemeContext";
 import { Typography } from "@mui/material";
 
+
+/**
+  * Ikonka s iniciály
+  * 
+  * @return {} komponenta
+  */
+
 export const NameAvatar = ({ name }) => {
   const { selectedTheme } = useThemeContext();
   const theme = useTheme();

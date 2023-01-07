@@ -1,11 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import Loader from "./Loader";
-// import { Label, Row, Col, Spinner } from "react-bootstrap";
-// import Image from 'next/image'
 import CircularProgress from '@mui/material/CircularProgress';
 
-// this provider get the loading and error values from the store and show related messages otherwise show the children
+
+/**
+  * Tento provider získává načítací a error hodnoty ze Store a vrací příslušné zprávy, jinak vrací potomka
+  *
+  * @param {reducer} x 
+  * @param {action} x 
+  * @param {children} x 
+  * @param {asyncThunk} x 
+  * @param {compromiseCode} x 
+  * @param {compromiseMessage} x 
+  * @return {} komponenta
+  */
 export default function ProvierErrorLoading({
   reducer,
   action,

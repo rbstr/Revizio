@@ -4,6 +4,12 @@ import MenuItem from "@mui/material/MenuItem";
 import { useTheme } from "@emotion/react";
 import { useMediaQuery } from "@mui/material";
 
+/**
+  * Komponenta pro textové pole - víceřádkové
+  *
+  * @return {} komponenta
+  */
+
 export const InputField2 = forwardRef((props, ref) => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const theme = useTheme();

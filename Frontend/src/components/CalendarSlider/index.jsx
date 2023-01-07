@@ -18,6 +18,14 @@ import moment from "moment";
 import "moment/locale/cs";
 import { Dropdown } from "components/Dropdown";
 
+/**
+  * Zjednodušený kalendář na přehledové straně
+  *
+  * @param {calendarData} x aktuální den, měsíc
+  * @param {setSlideIndex} x nastavení slide indexu
+  * @param {slideIndex} x slide index
+  * @return {} komponenta
+  */
 
 export const CalendarSlider = ({ calendarData, setSlideIndex, slideIndex }) => {
   const theme = useTheme();
@@ -28,6 +36,7 @@ export const CalendarSlider = ({ calendarData, setSlideIndex, slideIndex }) => {
     setOpenModal(!openModal);
   };
 
+  //vrací název měsíce v 1. pádu
   function getCzMonths(m1){
     if (m1 === "ledna"){
       return "Leden"
@@ -134,6 +143,7 @@ export const CalendarSlider = ({ calendarData, setSlideIndex, slideIndex }) => {
         }
         grabCursor={true}
         modules={[Navigation]}
+        //počet zobrazených dnů
         breakpoints={{
           600: {
             slidesPerView: 4,

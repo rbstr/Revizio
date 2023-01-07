@@ -22,6 +22,13 @@ import { SearchIcon } from "utils/icons";
 import { InputField } from "utils/InputField";
 import { PageHeader } from "utils/PageHeader";
 
+
+/**
+  * Komponenta evidence revizních zpráv
+  * @return {} komponenta
+  */
+
+
 export const Revisions = () => {
   const [search, setSearch] = useSearchDebounce();
   useEffect(() => {

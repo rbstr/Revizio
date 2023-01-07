@@ -6,6 +6,12 @@ import Paper from "@mui/material/Paper";
 import { pageLinksArr } from "utils/pageUrls";
 import { useTheme } from "@emotion/react";
 
+/**
+  * Zobrazení menu u mobilního zařízení
+  *
+  * @return {} komponenta
+  */
+
 export const BottomBar = () => {
   const theme = useTheme();
   const location = useLocation();

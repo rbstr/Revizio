@@ -8,6 +8,11 @@ import { resetRevisionForm } from "redux/slices/revisionSlice";
 import { ChevronRightIcon, CircleTickIcon, MailIcon } from "utils/icons";
 import { useTheme } from "@mui/material";
 
+/**
+  * Komponenta pro dokončený proces revize
+  * @param {type} x 
+  * @return {} komponenta
+  */
 
 export const CompleteRevision = ({ type }) => {
   const mobileScreen = useMediaQuery("(max-width:600px)");

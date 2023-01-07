@@ -42,8 +42,13 @@ import { setSettingsAsyncThunk } from "redux/slices/authSlice";
 import { TextIncreaseSharp } from "@mui/icons-material";
 
 
+/**
+  * Komponenta/stránka přehledu
+  * @return {} komponenta
+  */
 
-// User Properties
+
+// povinné hodnoty uživatele
 const profileKeys = {
   authorization: "Authorization",
   certificate: "Certificate",
@@ -59,7 +64,10 @@ const profileKeys = {
   telephoneNumber: "Phone Number",
 };
 
+//notifikace
 const notificationCollection = collection(firestore, "notifications");
+
+
 export const Home = () => {
   const [open, setOpen] = useState(false);
   const mobileScreen = useMediaQuery("(max-width:385px)");
@@ -119,6 +127,7 @@ export const Home = () => {
     dispatch(getMeetingsForCountAsyncThunk({ perPage: 10000, first: true }));
   }, []);
 
+
   const months = [
     "Leden",
     "Únor",
@@ -134,7 +143,7 @@ export const Home = () => {
     "Prosinec",
   ];
 
-
+  // měsíce v 1. pádu
   function getCzMonths(m1) {
     if (m1 === "ledna") {
       return "Leden"
@@ -177,6 +186,7 @@ export const Home = () => {
 
   moment.locale('cs');
   const totalCount = analytics[uid] ?? 0;
+  //porovnání aktuální a předchozího měsíce
   const Increased = (analytics[`${yymm}:${uid}`] ?? 0) - (analytics[`${moment().subtract(1, "month").format("YYYY/MM")
     }:${uid}`] ?? 0);
   const chartDataList = useMemo(() => Object.keys(analytics)
@@ -191,7 +201,8 @@ export const Home = () => {
     }).sort((a, b) => {
       return moment(b.label, "MM").diff(moment(a.label, "MM"));
     }), [analytics, uid]);
-  // if chart data has only 1 or 2 or 3 data, add empty data of next 4 months
+
+  // Pokud chybí předchozí údaje k měsícům, doplnit nuly
   const reconstructedChartData = useMemo(() => {
     const list = chartDataList.length > 0 ? [...chartDataList] : [];
     if (list?.length < 5) {
@@ -208,7 +219,7 @@ export const Home = () => {
   const chartDataTitle = "User Data";
   //console.log(reconstructedChartData);
 
-  //const chartDataTitle = "User Data";
+  // zisk aktuálního týdne pro calendarSlider
   const calendarData = useMemo(() => {
     const getData = (array, customMoment) => array.map((k) => {
       /**
@@ -240,6 +251,7 @@ export const Home = () => {
     const nextData = getData(nextArray, moment().add(1, "months"));
     return [...prevData, ...data, ...nextData];
   }, [meetingsForCount.data]);
+
   return (
     <>
       <PageHeader title="Přehled" subTitle="Vítej zpět.">
@@ -248,64 +260,7 @@ export const Home = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <SweetAlert
-            show={open}
-            showCancel
-            confirmBtnText="Ano, povolit"
-            confirmBtnBsStyle="primary"
-            cancelBtnBsStyle="default"
-            style={{
-              backgroundColor: theme.palette.background.paper,
-            }}
-            cancelBtnStyle={{
-              color: theme.palette.text.secondary,
-              fontSize: 12,
-            }}
-            confirmBtnStyle={{
-              fontSize: 12,
-              backgroundColor: theme.palette.primary.main,
-            }}
-            customIcon={
-              <Typography marginBottom={2} color="primary">
-                <NotificationIcon width="100" height="120" />
-              </Typography>
-            }
-            custom
-            onConfirm={async () => {
-              const permission = await Notification.requestPermission();
-              if (permission === "granted") {
-                const token = await getToken(messaging);
-                dispatch(
-                  setSettingsAsyncThunk({
-                    data: { [token]: true }
-                  })
-                );
-              } else {
-                toast.error(
-                  "You can turn on notification from the browser settings."
-                );
-                setOpen(false);
-              }
-            }}
-            title={
-              <Typography variant="h4" color={theme.palette.text.primary}>
-                Allow Notification
-              </Typography>
-            }
-            onCancel={() => setOpen(false)}
-            focusConfirmBtn
-          >
-            <Typography
-              variant="body2"
-              color={theme.palette.text.secondary}
-              style={{
-                fontSize: 14,
-              }}
-            >
-            </Typography>
-          </SweetAlert>
           <ThemeSwitch />
-
           <Dropdown
             icon={
               <Box sx={{ position: "relative" }}>

@@ -12,6 +12,13 @@ import CustomButton from "components/CustomComponents/CustomButton";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 import { useTheme } from "@emotion/react";
 
+/**
+  * Modal k vytvoření nové závady
+  *
+  * 
+  * @return {} komponenta
+  */
+ 
 export const DefectModal = () => {
   const dispatch = useDispatch();
   const {

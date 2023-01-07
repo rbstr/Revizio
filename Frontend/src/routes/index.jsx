@@ -27,6 +27,12 @@ import { LoadPattern } from "pages/Dashboard/Revision/LoadPattern";
 import { resetRevisionForm } from "redux/slices/revisionSlice";
 import { useTheme } from "@mui/material";
 
+/**
+  * Cesty stránky
+  * @return {} webRoutes
+  */
+
+
 export const WebRoutes = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { isLoggedIn } = useSelector((state) => state.auth);

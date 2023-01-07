@@ -6,7 +6,12 @@ import { catchAsync, handleLoading, reduxToolKitCaseBuilder } from "helpers/dete
 import { toast } from "react-toastify";
 import { saveClient, saveSignature } from "./revisionSlice";
 
-// create pattern async thunk
+/**
+  * Slice pro vzory
+  * @return {} slice
+  */
+
+// Vytvoření vzoru
 export const createPatternAsyncThunk = createAsyncThunk(
   "pattern/createPatternAsyncThunk",
   catchAsync(async ({ type, handleNext, data }, { getState }) => {
@@ -44,7 +49,7 @@ export const createPatternAsyncThunk = createAsyncThunk(
   })
 );
 
-// get pattern for id async thunk
+// Get vzor
 export const getPatternAsyncThunk = createAsyncThunk(
   "pattern/getPatternAsyncThunk",
   catchAsync(async ({ id }, { getState }) => {
@@ -58,7 +63,8 @@ export const getPatternAsyncThunk = createAsyncThunk(
     throw ("Mám potíže získat vzory zpráv.");
   })
 );
-// get patterns async thunk
+
+// Get vzory
 export const getPatternsAsyncThunk = createAsyncThunk(
   "pattern/getPatternsAsyncThunk",
   catchAsync(async ({ perPage, search, first }, { getState }) => {
@@ -107,7 +113,7 @@ export const getPatternsAsyncThunk = createAsyncThunk(
   })
 );
 
-// logout async thunk
+// Přejmenování vzoru
 export const renamePatternAsyncThunk = createAsyncThunk(
   "pattern/renamePatternAsyncThunk",
   catchAsync(async ({ id, data, handleNext }, { dispatch }) => {
@@ -117,7 +123,8 @@ export const renamePatternAsyncThunk = createAsyncThunk(
     return true;
   })
 );
-// logout async thunk
+
+// Odstranění vzoru
 export const deletePatternAsyncThunk = createAsyncThunk(
   "pattern/deletePatternAsyncThunk",
   catchAsync(async ({ id }, { dispatch }) => {

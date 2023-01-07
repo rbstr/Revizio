@@ -9,6 +9,13 @@ import CustomButton from "components/CustomComponents/CustomButton";
 import { useDispatch } from "react-redux";
 import { sendPasswordResetEmailAsyncThunk } from "redux/slices/authSlice";
 
+/**
+  * Komponenta pro obnovu hesla
+  *
+  * @return {} komponenta
+  */
+
+
 export const ForgetPassword = () => {
   const { handleAuthForm } = useAuthFormContext();
   const d = useDispatch();

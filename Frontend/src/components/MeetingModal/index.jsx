@@ -30,6 +30,15 @@ import "dayjs/locale/cs";
 import { useTheme } from "@emotion/react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
+
+/**
+  * Modal k uložení nové schůzky v kalendáři
+  *
+  * @param {open} x 
+  * @param {handleModelClose} x 
+  * @return {} komponenta
+  */
+
 // 0-23 with 15 min interval
 const timeSlots = Array.from({ length: 24 * 4 }, (_, i) => {
   const hours = Math.floor(i / 4);
@@ -39,6 +48,7 @@ const timeSlots = Array.from({ length: 24 * 4 }, (_, i) => {
   }${minutes}`;
 });
 const filter = createFilterOptions();
+
 
 export const MeetingModal = ({ open, handleModelClose }) => {
   //moment.locale("cs")

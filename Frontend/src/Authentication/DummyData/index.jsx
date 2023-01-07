@@ -16,6 +16,13 @@ import { useModalContext } from "context/ModalContext";
 import { AuthLayout } from "Authentication/AuthLayout";
 import { CalendarSlider } from "components/CalendarSlider";
 
+
+/**
+  * Hloupá data pro přehledovou stránku
+  *
+  * @return {} komponenta
+  */
+
 export const DummyData = () => {
   const { handleAuthForm } = useAuthFormContext();
   const { handleToggleModal } = useModalContext();

@@ -2,6 +2,14 @@ import { Box, CircularProgress } from "@mui/material";
 import React, { useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 
+
+/**
+  * Render PDF dokumentu
+  *
+  * @param {props} x 
+  * @return {} komponenta
+  */
+
 export const AllPages = (props) => {
   const [numPages, setNumPages] = useState(null);
 

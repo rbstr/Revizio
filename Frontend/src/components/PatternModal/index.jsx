@@ -17,10 +17,17 @@ import {
   createPatternAsyncThunk,
   renamePatternAsyncThunk,
   setPatternIdToEdit,
-} from "redux/slices/patterSlice";
+} from "redux/slices/patternSlice";
 import CustomButton from "components/CustomComponents/CustomButton";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 import { useTheme } from "@mui/material";
+
+/**
+  * Modal k uložení/přejmenování vzoru zpráv
+  *
+  * @param {type} x 
+  * @return {} komponenta
+  */
 
 export const PatternModal = ({ type }) => {
 

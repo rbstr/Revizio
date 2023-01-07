@@ -20,6 +20,12 @@ import { ForgetPassword } from "Authentication/ForgetPassword";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 import { useMediaQuery } from "@mui/material";
 
+/**
+  * Komponenta pro autentizaci
+  *
+  * @return {} komponenta
+  */
+
 export const AuthLayout = () => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const dispatch = useDispatch();

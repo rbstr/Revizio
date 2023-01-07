@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+  * Definice ikon aplikace
+  *
+  */
+
+
 export const DashboardIcon = (props) => {
   return (
     <svg

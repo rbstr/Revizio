@@ -3,9 +3,14 @@ import { firestore, storage } from "config/firebase";
 import { collection, deleteDoc, doc, getDoc, getDocs, limit, orderBy, query, setDoc, startAfter, serverTimestamp, where, startAt, endAt } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes, uploadString } from "firebase/storage";
 import { catchAsync, handleLoading, reduxToolKitCaseBuilder } from "helpers/detectError";
-// import { getDefectPerMonth, incrementDefectPerMonth, yymm } from "helpers/firebaseHelper";
 
-// create defect async thunk
+/**
+  * Slice pro závafy
+  * @return {} slice
+  */
+
+
+// Vytvoření závady
 export const createDefectAsyncThunk = createAsyncThunk(
   "defect/createDefectAsyncThunk",
   catchAsync(async ({ data, handleToggleModal }, { getState, dispatch }) => {
@@ -25,7 +30,7 @@ export const createDefectAsyncThunk = createAsyncThunk(
   })
 );
 
-// get defect for id async thunk
+// Get závada
 export const getDefectAsyncThunk = createAsyncThunk(
   "defect/getDefectAsyncThunk",
   catchAsync(async ({ id }, { getState }) => {
@@ -39,7 +44,7 @@ export const getDefectAsyncThunk = createAsyncThunk(
     throw ("Mám potíže získat závady.");
   })
 );
-// get defects async thunk
+// Get nejčastější závady 
 export const getCommonDefectsAsyncThunk = createAsyncThunk(
   "defect/getCommonDefectsAsyncThunk",
   catchAsync(async ({ deviceName }, { getState }) => {
@@ -94,7 +99,7 @@ export const getCommonDefectsAsyncThunk = createAsyncThunk(
     return data.slice(0,3);
   })
 );
-// get defects async thunk
+// Get závady
 export const getDefectsAsyncThunk = createAsyncThunk(
   "defect/getDefectsAsyncThunk",
   catchAsync(async (_, { getState }) => {
@@ -116,7 +121,7 @@ export const getDefectsAsyncThunk = createAsyncThunk(
   })
 );
 
-// logout async thunk
+// Odstranění závady
 export const deleteDefectAsyncThunk = createAsyncThunk(
   "defect/deleteDefectAsyncThunk",
   catchAsync(async ({ id }, _) => {

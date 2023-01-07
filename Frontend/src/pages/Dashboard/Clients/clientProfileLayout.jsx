@@ -53,6 +53,12 @@ import { PdfModal } from "components/PdfModal";
 import { useState } from "react";
 import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 
+/**
+  * Komponenta karty klienta
+  * @param {formType} x 
+  * @return {} komponenta
+  */
+
 
 export const customAlert = (title, message, action, theme, mobileScreen) =>
   confirmAlert({

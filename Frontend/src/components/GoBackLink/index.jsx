@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 import { ChevronLeftIcon } from "utils/icons";
 import { useMediaQuery } from "@mui/material";
 
+/**
+  * Pohyb zpět u nadpisů
+  *
+  * @param {url} x smer linku
+  * @param {title} x text
+  * @return {} komponenta
+  */
+
 export const GoBackLink = ({ url, title }) => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   return (

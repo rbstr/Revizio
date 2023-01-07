@@ -18,6 +18,14 @@ import { PageIcon, SearchIcon } from "utils/icons";
 import { useSearchDebounce } from "hooks/debounce";
 import { CloseOutlined } from "@mui/icons-material";
 
+
+/**
+  * Komponenta/stránka klienti
+  *
+  * @return {} komponenta
+  */
+
+
 export const Clients = () => {
   const [search, setSearch] = useSearchDebounce();
   useEffect(() => {

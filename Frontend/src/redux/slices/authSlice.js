@@ -26,6 +26,12 @@ import {
 } from "helpers/detectError";
 import { toast } from "react-toastify";
 
+/**
+  * Slice pro autentizaci
+  * @return {} slice
+  */
+
+
 function isIOS() {
   const browserInfo = navigator.userAgent.toLowerCase();
   
@@ -43,7 +49,7 @@ function isGranted() {
   return Notification.permission === "granted"
 }
 
-// login With Google async thunk
+// Přihlášení/Registrace pomocí Google
 export const loginWithGoogleAsyncThunk = createAsyncThunk(
   "auth/loginWithGoogleAsyncThunk",
   catchAsync(async ({ handleToggleModal }, _) => {
@@ -65,7 +71,7 @@ export const loginWithGoogleAsyncThunk = createAsyncThunk(
     };
   })
 );
-// forgot With Google async thunk
+// Zapomenuté heslo
 export const sendPasswordResetEmailAsyncThunk = createAsyncThunk(
   "auth/sendPasswordResetEmailAsyncThunk",
   catchAsync(async ({ email }, _) => {
@@ -82,7 +88,7 @@ export const sendPasswordResetEmailAsyncThunk = createAsyncThunk(
     };
   })
 );
-// register async thunk
+// Registrace
 export const registerAsyncThunk = createAsyncThunk(
   "auth/registerAsyncThunk",
   catchAsync(async ({ data, handleToggleModal }, { dispatch }) => {
@@ -102,9 +108,6 @@ export const registerAsyncThunk = createAsyncThunk(
       email: data.email,
       timestamp: serverTimestamp(),
     });
-    // console.log('user:', registeredUser.user)
-    // console.log('updatedUser:', updatedUser)
-    // console.log('profile:', profile)
     handleToggleModal();
     dispatch(getProfileAsyncThunk());
     return {
@@ -114,7 +117,7 @@ export const registerAsyncThunk = createAsyncThunk(
   })
 );
 
-// login async thunk
+// Přihlášení
 export const loginAsyncThunk = createAsyncThunk(
   "auth/loginAsyncThunk",
   catchAsync(async ({ data, handleToggleModal }, _) => {
@@ -131,7 +134,7 @@ export const loginAsyncThunk = createAsyncThunk(
     return user;
   })
 );
-// get user settings async thunk
+// Get nastavení uživatele
 export const getSettingsAsyncThunk = createAsyncThunk(
   "auth/getSettingsAsyncThunk",
   catchAsync(async (_, { getState, dispatch }) => {
@@ -145,7 +148,7 @@ export const getSettingsAsyncThunk = createAsyncThunk(
     }
   })
 );
-// get user settings async thunk
+// Set nastavení uživatele
 export const setSettingsAsyncThunk = createAsyncThunk(
   "auth/setSettingsAsyncThunk",
   catchAsync(async ({ data, callBack, ...everything }, { getState }) => {
@@ -161,7 +164,7 @@ export const setSettingsAsyncThunk = createAsyncThunk(
     if (callBack) callBack();
   })
 );
-// get profile async thunk
+// Get uživatele
 export const getProfileAsyncThunk = createAsyncThunk(
   "auth/getProfileAsyncThunk",
   catchAsync(async (_, { getState }) => {
@@ -177,7 +180,7 @@ export const getProfileAsyncThunk = createAsyncThunk(
     throw { message: "Mám potíže získat profil.", code: 401 };
   })
 );
-// create profile async thunk
+// Editace/uložení změn uživatele
 export const createProfileAsyncThunk = createAsyncThunk(
   "auth/createProfileAsyncThunk",
   catchAsync(async ({ data, image, callBack }, { getState, dispatch }) => {
@@ -210,7 +213,7 @@ export const createProfileAsyncThunk = createAsyncThunk(
     return savedProfile;
   })
 );
-// logout async thunk
+// Odhlášení uživatele
 export const logoutAsyncThunk = createAsyncThunk(
   "auth/logoutAsyncThunk",
   catchAsync(async ({ navigate }, _) => {

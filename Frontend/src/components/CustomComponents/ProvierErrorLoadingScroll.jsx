@@ -1,10 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import Loader from "./Loader";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useTheme } from "@mui/material";
-// import { Container, Row, Col } from "react-bootstrap";
-// this provider get the loading and error values from the store and show related messages otherwise show the children
+
+/**
+  * Tento provider získává načítací a error hodnoty ze Store a vrací příslušné zprávy
+  *
+  * @param {reducer} x 
+  * @param {action} x 
+  * @param {dataKey} x 
+  * @param {Component} x 
+  * @param {loadMore} x 
+  * @param {asyncThunk} x 
+  * @return {} komponenta
+  */
 export default function ProvierErrorLoadingScroll({
   reducer,
   action,

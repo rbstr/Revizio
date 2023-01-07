@@ -26,6 +26,15 @@ import { GridSection } from "components/GridSection";
 import { InputField } from "utils/InputField";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 
+/**
+  * Zobrazení informací o klientovi v kalendáři
+  *
+  * @param {open} x 
+  * @param {setOpen} x nadpis okénka
+  * @param {data} 
+  * @return {} komponenta
+  */
+
 export const ClientModal = ({ open, setOpen, data }) => {
   const { pdfRevisionData } = useSelector((state) => state.revision);
   const dispatch = useDispatch();
@@ -53,14 +62,14 @@ export const ClientModal = ({ open, setOpen, data }) => {
           <CloseIcon fontSize="16" color="primary" />
         </IconButton>
       </Box>
-      <DialogTitle variant="h3">Client information</DialogTitle>
+      <DialogTitle variant="h3">Informace o klientovi</DialogTitle>
       <DialogContent>
         <Divider sx={{ marginBottom: 2 }} />
         <Grid item xs={12}>
           <GridSection>
             <Grid item xs={12} md={12}>
               <InputField
-                id="street"
+                id="name"
                 disabled={true}
                 label="Client Name"
                 value={data?.client?.firstName + " " + data?.client?.lastName}
@@ -76,7 +85,7 @@ export const ClientModal = ({ open, setOpen, data }) => {
             </Grid>
             <Grid item xs={12} md={12}>
               <InputField
-                id="street"
+                id="phone"
                 disabled={true}
                 label="Client Phone"
                 value={data?.client?.telephoneNumber}
@@ -84,7 +93,7 @@ export const ClientModal = ({ open, setOpen, data }) => {
             </Grid>
             <Grid item xs={12} md={12}>
               <InputField
-                id="street"
+                id="address"
                 disabled={true}
                 label="Client Address"
                 value={

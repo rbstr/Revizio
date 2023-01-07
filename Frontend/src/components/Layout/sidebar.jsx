@@ -17,6 +17,12 @@ import PropTypes from "prop-types";
 import logoLight from "assets/images/logo/logo-light.webp";
 import logoDark from "assets/images/logo/logo-dark.webp";
 
+/**
+  * Zobrazení menu u tabletu
+  *
+  * @return {} komponenta
+  */
+
 export const Sidebar = (props) => {
   const theme = useTheme();
   const { selectedTheme } = useThemeContext();

@@ -17,6 +17,14 @@ import { customAlert } from "pages/Dashboard/Clients/clientProfileLayout";
 import { useTheme } from "@emotion/react";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 
+/**
+  * Modal k zobrazení PDF dokumentu.
+  *
+  * @param {open} x 
+  * @param {setOpen} x 
+  * @return {} komponenta
+  */
+
 export const PdfModal = ({ open, setOpen }) => {
   const { openModal, handleToggleModal } = useModalContext();
   const { pdfRevisionData } = useSelector((state) => state.revision);

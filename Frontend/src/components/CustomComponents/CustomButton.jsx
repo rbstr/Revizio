@@ -2,6 +2,12 @@ import React from 'react'
 import Button from "@mui/material/Button";
 import { useSelector } from 'react-redux';
 
+/**
+  * Custom tlačítko
+  *
+  * @return {} komponenta
+  */
+
 export default function CustomButton({
   onClick,
   btnProps,

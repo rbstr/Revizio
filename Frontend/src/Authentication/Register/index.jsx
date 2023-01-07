@@ -11,6 +11,14 @@ import { useModalContext } from "context/ModalContext";
 import useYupValidationResolver from "schema/useYupValidationResolver";
 import { registerSchema } from "schema";
 
+
+/**
+  * Komponenta pro registraci
+  *
+  * @return {} komponenta
+  */
+
+
 export const Register = () => {
   const dispatch = useDispatch()
   const { handleToggleModal } = useModalContext();

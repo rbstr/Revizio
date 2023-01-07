@@ -9,6 +9,19 @@ import { EmailModal } from "components/EmailModal";
 import moment from "moment";
 import { useTheme } from "@mui/material";
 
+/**
+  * Karta souboru
+  *
+  * @param {fileName} x 
+  * @param {id} x 
+  * @param {printOptions} x
+  * @param {email} x
+  * @param {subject} x
+  * @param {fileUrl} x
+  * @param {date} x
+  * @return {} komponenta
+  */
+
 export const PrintCard = ({ fileName,id, printOptions, email,subject, fileUrl, date }) => {
 
   const theme = useTheme();

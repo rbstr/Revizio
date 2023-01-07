@@ -6,6 +6,17 @@ import Box from "@mui/material/Box";
 import { useTheme } from "@emotion/react";
 import { useMediaQuery } from "@mui/material";
 
+/**
+  * Zjednodušený kalendář na přehledové straně
+  *
+  * @param {children} x 
+  * @param {title} x nadpis okénka
+  * @param {icon} x ikona
+  * @param {align} x zarovnání
+  * @param {elevation} x elevation
+  * @return {} komponenta
+  */
+
 export const CustomCard = ({ children, title, icon, align, elevation }) => {
   const theme = useTheme();
   const mobileScreen = useMediaQuery("(max-width:600px)");

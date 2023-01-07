@@ -20,6 +20,15 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+/**
+  * Graf zobrazený na přehledové stránce
+  *
+  * @param {chartData} x data grafu
+  * @param {chartDataTitle} x nadpis grafu
+  * @return {} komponenta
+  */
+
 export const BarChart = ({ chartData, chartDataTitle }) => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const [chartLabel, chartValue] = useMemo(()=> {

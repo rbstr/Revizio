@@ -26,6 +26,11 @@ import { CalendarIcon } from "utils/icons";
 import AddIcon from '@mui/icons-material/Add';
 import { removeDefectsBefore } from "schema/fields";
 
+/**
+  * Komponenta pro nalezené závady zařízení
+  * @return {} komponenta
+  */
+
 export const FundDefectStep = ({
   type,
   activeStep,
@@ -211,6 +216,7 @@ export const FundDefectStep = ({
       })
   );
 
+  //funkce k zjíštění, zda je zadána závada
   function isFilled() {
     return type === revisionTypes.service
       ? watch("majorDefects")?.includes(
@@ -490,192 +496,11 @@ export const FundDefectStep = ({
                         )}
                       />
                     </Grid>
-
-                    {/* {type === revisionTypes.service && (
-                      <Grid item xs={6} md={4}>
-                        <ReactHookFormSelect
-                          id="deviceDefects"
-                          {...register("deviceDefects", { required: true })}
-                          label={
-                            errors.deviceDefects?.message ?? "Device defects"
-                          }
-                          name="deviceDefects"
-                          error={haveError(errors.deviceDefects)}
-                          control={control}
-                          multiple
-                          defaultValue={checkArray(
-                            watch("deviceDefects") || ["Without Defect"]
-                          )}
-                          renderValue={(selected) => (
-                            <Box
-                              sx={{
-                                display: "flex",
-                                flexWrap: "nowrap",
-                                gap: 0.5,
-                              }}
-                            >
-                              {selected.map((value) => (
-                                <Chip
-                                  key={value}
-                                  label={value}
-                                  size={"small"}
-                                  sx={{
-                                    height: "auto",
-                                    padding: 0.1,
-                                    fontSize: { xs: 8, sm: 12 },
-                                  }}
-                                />
-                              ))}
-                            </Box>
-                          )}
-                          options={deviceDefectsOptions}
-                          fixedTop={true}
-                          addnew={
-                            <Box sx={{ paddingX: 3 }}>
-                              <Button
-                                variant="contained"
-                                onClick={() => {
-                                  dispatch(setType({ type: "deviceDefects" }));
-                                  handleToggleModal();
-                                }}
-                              >
-                                Add New
-                              </Button>
-                            </Box>
-                          }
-                        />
-                      </Grid>
-                    )} */}
                   </GridSection>
                 </Grid>
               </Grid>
-              {/* <Grid item xs={6} md={4}>
-                <ReactHookFormSelect
-                  id="minorDefects"
-                  {...register("minorDefects", { required: true })}
-                  label={errors.minorDefects?.message ?? "Minor defects"}
-                  name="minorDefects"
-                  error={haveError(errors.minorDefects)}
-                  control={control}
-                  multiple
-                  defaultValue={checkArray(
-                    watch("minorDefects") || ["Without Defect"]
-                  )}
-                  renderValue={(selected) => (
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexWrap: "nowrap",
-                        gap: 0.5,
-                      }}
-                    >
-                      {selected.map((value) => (
-                        <Chip key={value} label={value} sx={{
-                              height: "auto",
-                               padding: 0.1,
-                              fontSize: { xs: 8, sm: 12 },
-                            }} />
-                      ))}
-                    </Box>
-                  )}
-                  fixedTop={true}
-                  options={minorDefectsOptions}
-                  addnew={
-                    <Box sx={{ paddingX: 3 }}>
-                      <Button
-                        variant="contained"
-                        onClick={() => {
-                          dispatch(setType({ type: "minorDefects" }));
-                          handleToggleModal();
-                        }}
-                      >
-                        Add New
-                      </Button>
-                    </Box>
-                  }
-                />
-              </Grid> */}
             </Box>
           </Grid>
-          {/* {
-            <Grid item xs={12}>
-              <GridSection title="Deadline for removal">
-                <Grid item xs={6} md={4}>
-               
-                  <Controller
-                    name={"removeDefectsBefore"}
-                    control={control}
-                    {...register("removeDefectsBefore", {
-                      required: true,
-                    })}
-                    defaultValue={
-                      getValues("removeDefectsBefore")
-                        ? typeof getValues("removeDefectsBefore") == "object"
-                          ? moment(
-                              getValues("removeDefectsBefore").seconds * 1000
-                            ).toISOString()
-                          : moment(
-                              getValues("removeDefectsBefore")
-                            ).toISOString()
-                        : moment().toISOString()
-                    }
-                    render={({
-                      field: { onChange, value },
-                      fieldState: { error },
-                    }) => (
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DesktopDatePicker
-                          label={"Remove Defects Before"}
-                          control={control}
-                          inputFormat="DD-MM-YYYY"
-                          disabled={
-                            watch("majorDefects")?.includes("Without Defect") &&
-                            watch("minorDefects")?.includes("Without Defect") &&
-                            watch("deviceDefects")?.includes("Without Defect")
-                          }
-                          value={
-                            watch("majorDefects")?.includes("Without Defect") &&
-                            watch("minorDefects")?.includes("Without Defect") &&
-                            watch("deviceDefects")?.includes("Without Defect")
-                              ? undefined
-                              : value
-                          }
-                          onChange={(event) => {
-                            try {
-                              if (
-                                watch("majorDefects")?.includes(
-                                  "Without Defect"
-                                ) &&
-                                watch("minorDefects")?.includes(
-                                  "Without Defect"
-                                ) &&
-                                watch("deviceDefects")?.includes(
-                                  "Without Defect"
-                                )
-                              )
-                                return;
-                              onChange(event?.toISOString());
-                            } catch (error) {}
-                          }}
-                          renderInput={(params) => (
-                            <InputField
-                              {...params}
-                              InputProps={{
-                              ...params?.InputProps,
-                              disableUnderline: true,
-                            }}
-                              error={!!error}
-                              helperText={error?.message}
-                            />
-                          )}
-                        />
-                      </LocalizationProvider>
-                    )}
-                  />
-                </Grid>
-              </GridSection>
-            </Grid>
-          } */}
         </Grid>
         <DefectModal />
       </Box>

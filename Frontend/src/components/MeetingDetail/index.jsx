@@ -15,6 +15,15 @@ import moment from "moment";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 import { useTheme } from "@emotion/react";
 
+/**
+  * Modal k zobrazení detailu schůzky v kalendáři
+  *
+  * @param {open} x 
+  * @param {setOpen} x 
+  * @param {data} x 
+  * @return {} komponenta
+  */
+
 export const MeetingDetail = ({ open, setOpen, data={} }) => {
   const theme = useTheme();
   return (

@@ -6,6 +6,12 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { useTheme } from "@emotion/react";
 
+/**
+  * Tlačítko přechodu mezi dark modem
+  *
+  * @return {} komponenta
+  */
+
 const ThemeToggleSwitch = styled(Switch)(({ theme }) => ({
   width: 70,
   height: 40,

@@ -2,6 +2,12 @@ import React from "react";
 import { styled } from "@mui/material";
 import Switch from "@mui/material/Switch";
 
+/**
+  * Komponenta pro vlastní theme switch
+  *
+  * @return {} komponenta
+  */
+
 const NotificationSwitch = styled((props) => (
   <Switch
     focusVisibleClassName=".Mui-focusVisible"

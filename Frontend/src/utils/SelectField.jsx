@@ -12,6 +12,14 @@ import {
 import { useTheme } from "@emotion/react";
 import { ArrowDownIcon } from "./icons";
 import { Controller } from "react-hook-form";
+
+/**
+  * Komponenta pro selecti field
+  *
+  * @return {} komponenta
+  */
+
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {

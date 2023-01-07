@@ -7,6 +7,12 @@ import { useTheme } from "@emotion/react";
 import Divider from "@mui/material/Divider";
 import { useMediaQuery } from "@mui/material";
 
+/**
+  * Komponenta pro header stránky
+  *
+  * @return {} komponenta
+  */
+
 export const PageHeader = ({
   title,
   subTitle,

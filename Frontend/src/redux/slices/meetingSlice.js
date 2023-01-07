@@ -6,9 +6,12 @@ import moment from "moment";
 import { getDate } from "pages/Dashboard/Calendar";
 import { toast } from "react-toastify";
 
+/**
+  * Slice pro schůzky
+  * @return {} slice
+  */
 
-
-// create meeting async thunk
+// Vytvoření schůzky
 export const createMeetingAsyncThunk = createAsyncThunk(
   "meeting/createMeetingAsyncThunk",
   catchAsync(async ({ data, callBack, fetchMeetings }, { getState, dispatch }) => {
@@ -27,7 +30,7 @@ export const createMeetingAsyncThunk = createAsyncThunk(
   })
 );
 
-// get meeting for id async thunk
+// Get schůzka
 export const getMeetingAsyncThunk = createAsyncThunk(
   "meeting/getMeetingAsyncThunk",
   catchAsync(async ({ id }, { getState }) => {
@@ -40,7 +43,7 @@ export const getMeetingAsyncThunk = createAsyncThunk(
     throw ("Mám potíže získat schůzky.");
   })
 );
-// get meetings async thunk
+// Get schůzky pro počet/den
 export const getMeetingsForCountAsyncThunk = createAsyncThunk(
   "meeting/getMeetingsForCountAsyncThunk",
   catchAsync(async ({ perPage, first }, { getState }) => {
@@ -77,7 +80,8 @@ export const getMeetingsForCountAsyncThunk = createAsyncThunk(
     };
   })
 );
-// get meetings async thunk
+
+// Get schůzky
 export const getMeetingsAsyncThunk = createAsyncThunk(
   "meeting/getMeetingsAsyncThunk",
   catchAsync(async ({ perPage, search, first }, { getState }) => {
@@ -126,7 +130,7 @@ export const getMeetingsAsyncThunk = createAsyncThunk(
   })
 );
 
-// logout async thunk
+// Odstranění schůzky
 export const deleteMeetingAsyncThunk = createAsyncThunk(
   "meeting/deleteMeetingAsyncThunk",
   catchAsync(async ({ id, navigate, fetchList, clientId, callBack }, { dispatch, getState }) => {

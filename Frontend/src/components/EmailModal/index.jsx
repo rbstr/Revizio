@@ -23,6 +23,18 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 
+/**
+  * Modal k odeslání emailové zprávy
+  *
+  * @param {type} x typ revize
+  * @param {open} x 
+  * @param {toggleOpen} x 
+  * @param {staticPDF} x url k jiz vytvorenemu PDF
+  * @param {email} x email klienta
+  * @param {subject} x predmet emailu
+  * @return {} komponenta
+  */
+
 export const EmailModal = ({
   type,
   open,

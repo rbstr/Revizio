@@ -33,6 +33,11 @@ import { ReactHookFormSelect } from "utils/SelectField";
 import "dayjs/locale/cs";
 import { nextRevisionDate } from "schema/fields";
 
+/**
+  * Komponenta pro celkové zhodnocení revize
+  * @return {} komponenta
+  */
+
 export const OverAllRatingStep = ({
   type,
   activeStep,
@@ -68,6 +73,7 @@ export const OverAllRatingStep = ({
       return { ...additionalInformation };
     }, [additionalInformation]),
   });
+
   // if additionalInformation data is change reet form
   useEffect(() => {
     if (additionalInformation && Object.keys(additionalInformation).length) {
@@ -89,12 +95,6 @@ export const OverAllRatingStep = ({
     if (!signImg) return toast.error("Prosím nejdříve revizi podepiš.");
     dispatch(setAdditionalInformation({ data, type, signImg }));
     handleNext();
-  };
-
-  const onSubmit2 = (data) => {
-    //console.log("tohle jsou data:", data);
-    dispatch(setAdditionalInformation({ data, type, signImg }));
-    handleBack();
   };
 
   const previousDefectsOptions = [
@@ -216,32 +216,6 @@ export const OverAllRatingStep = ({
                     </LocalizationProvider>
                   )}
                 />
-                {/* <Controller
-                        name={"nextRevisionDate"}
-                        control={control}
-                        defaultValue={getValues("nextRevisionDate") ? (typeof getValues("nextRevisionDate") == "object" ? moment(getValues("nextRevisionDate").seconds * 1000).toISOString() : moment(getValues("nextRevisionDate")).toISOString()) : moment().toISOString()}
-                        render={({ field: { onChange, value }, fieldState: { error } }) => (
-                          <LocalizationProvider
-                            dateAdapter={AdapterDayjs} >
-                            <DesktopDatePicker
-                              label={"Next Revision Date"}
-                              control={control}
-                              inputFormat="DD-MM-YYYY"
-                              value={value}
-                              onChange={(event) => {
-                                try {
-                                  onChange(event?.toISOString());
-                                } catch (error) {
-
-                                }
-                              }}
-                              renderInput={(params) => <InputField {...params} InputProps={{
-                              ...params?.InputProps,
-                              disableUnderline: true,
-                            }} error={!!error} helperText={error?.message} />}
-                            />
-                          </LocalizationProvider>
-                        )} /> */}
               </Grid>
               <Grid item xs={6} md={4}>
                 <Box>

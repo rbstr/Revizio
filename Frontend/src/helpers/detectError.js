@@ -1,6 +1,10 @@
 import { toast } from "react-toastify";
 
 
+/**
+  * Pomocník pro správu chyb
+  *
+  */
 
 export const checkArray = (e) => (Array.isArray(e) ? e : [e]);
 

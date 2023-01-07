@@ -11,6 +11,11 @@ import { CompleteRevision } from "../Steps/CompleteRevision";
 import { PageHeader } from "utils/PageHeader";
 import { useTheme } from "@emotion/react";
 
+/**
+  * Komponenta provozní revize
+  * @return {} komponenta
+  */
+
 export const RevisionService = () => {
   const theme = useTheme();
 

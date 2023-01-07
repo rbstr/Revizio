@@ -18,7 +18,7 @@ import {
   deletePatternAsyncThunk,
   getPatternsAsyncThunk,
   setPatternIdToEdit,
-} from "redux/slices/patterSlice";
+} from "redux/slices/patternSlice";
 import { CustomRadioButton } from "utils/CustomRadioButton";
 import { EditIcon, TrashIcon } from "utils/icons";
 import { PageHeader } from "utils/PageHeader";
@@ -33,6 +33,13 @@ import { customAlert } from "pages/Dashboard/Clients/clientProfileLayout";
 import { useTheme } from "@mui/material";
 import { StepHeader } from "components/SteperHeader";
 import { useMediaQuery } from "@mui/material";
+
+
+/**
+  * Komponenta načtení vzoru
+  * @return {} komponenta
+  */
+
 
 export const LoadPattern = () => {
   const mobileScreen = useMediaQuery("(max-width:600px)");

@@ -7,6 +7,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useMediaQuery } from "@mui/material";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 
+/**
+  * Modal k zobrazení mapových podkladů
+  *
+  * @param {openModal} x 
+  * @param {handleToggleModal} x 
+  * @param {getValues} x 
+  * @return {} komponenta
+  */
+
 export const MapSection = ({ openModal, handleToggleModal, getValues }) => {
   // const { openModal, handleToggleModal } = useModalContext();
   const [pageHeight, setPageHeight] = useState(window.innerHeight);

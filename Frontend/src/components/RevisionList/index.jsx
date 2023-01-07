@@ -17,6 +17,13 @@ import { customAlert } from "pages/Dashboard/Clients/clientProfileLayout";
 import { useTheme } from "@emotion/react";
 import { ThemeProvider, createTheme, useMediaQuery } from "@mui/material";
 
+/**
+  * Komponenta nedávno vytvořených revizí na přehledové stránce
+  *
+  * @param {listArr} x 
+  * @return {} komponenta
+  */
+
 export const RevisionList = ({ listArr }) => {
   const dispatch = useDispatch()
   const [selectedId, setSelectedId] = useState(null)

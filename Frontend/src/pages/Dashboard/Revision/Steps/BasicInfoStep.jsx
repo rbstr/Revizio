@@ -26,6 +26,16 @@ import { ConfirmationModal } from "components/ConfirmationModal";
 import { useModalContext } from "context/ModalContext";
 import { FormControl, InputLabel, MenuItem, Select, Typography, useMediaQuery } from "@mui/material";
 
+/**
+  * Komponenta pro základní informace o klientovi/budově
+  * @param {type} x 
+  * @param {activeStep} x
+  * @param {handleBack} x
+  * @param {handleNext} x
+  * @return {} komponenta
+  */
+
+
 export const BasicInfoStep = ({ type, activeStep, handleBack, handleNext }) => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const [isLoading, setisLoading] = useState(false);

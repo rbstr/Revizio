@@ -18,8 +18,11 @@ import { useMediaQuery } from "@mui/material";
 import { Timestamp } from "firebase/firestore";
 import { Dropdown } from "components/Dropdown";
 
-import Paper from "@mui/material/Paper";
-import TablePagination from "@mui/material/TablePagination";
+/**
+  * Vytvoření seznamu klientů/evidence revizí
+  *
+  * @return {} komponenta
+  */
 
 function getTypeCz(type){
   if (type === "initial"){

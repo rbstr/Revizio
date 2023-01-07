@@ -15,6 +15,12 @@ import { getMeetingsAsyncThunk } from "redux/slices/meetingSlice";
 import { MeetingDetail } from "components/MeetingDetail";
 import AddIcon from '@mui/icons-material/Add';
 
+/**
+  * Komponenta/stránka kalendáře
+  *
+  * @return {} komponenta
+  */
+
 moment.locale('cs');
 const localizer = momentLocalizer(moment);
 

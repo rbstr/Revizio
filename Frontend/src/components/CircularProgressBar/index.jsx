@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material";
 /**
- * 
+ * Animace načítání
  * @param {import("@mui/material/CircularProgress").CircularProgressProps} param0 
  * @returns 
  */

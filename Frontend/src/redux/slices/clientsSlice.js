@@ -4,7 +4,14 @@ import { collection, deleteDoc, doc, endAt, getDoc, getDocs, limit, orderBy, que
 import { catchAsync, handleLoading, reduxToolKitCaseBuilder } from "helpers/detectError";
 import { toast } from "react-toastify";
 
-// create client async thunk
+
+/**
+  * Slice pro práci s klienty
+  * @return {} slice
+  */
+
+
+// Úprava uživatele
 export const updateClientAsyncThunk = createAsyncThunk(
   "client/updateClientAsyncThunk",
   catchAsync(async ({ data, callBack }, { getState }) => {
@@ -16,7 +23,7 @@ export const updateClientAsyncThunk = createAsyncThunk(
     toast.success("Údaje klienta úspěšně aktualizované.")
   })
 );
-// create client async thunk
+// Vytvoření uživatele
 export const createClientAsyncThunk = createAsyncThunk(
   "client/createClientAsyncThunk",
   catchAsync(async ({ data }, { getState }) => {
@@ -27,7 +34,7 @@ export const createClientAsyncThunk = createAsyncThunk(
   })
 );
 
-// get client for id async thunk
+// Get klient pomocí emailu
 export const getClientbyEmailAsyncThunk = createAsyncThunk(
   "client/getClientbyEmailAsyncThunk",
   catchAsync(async ({ email }, { getState }) => {
@@ -42,7 +49,7 @@ export const getClientbyEmailAsyncThunk = createAsyncThunk(
     throw ("Tento profil neexistuje.");
   })
 );
-// get client for id async thunk
+// Get klient pomocí id
 export const getClientAsyncThunk = createAsyncThunk(
   "client/getClientAsyncThunk",
   catchAsync(async ({ id }, { getState }) => {
@@ -56,7 +63,7 @@ export const getClientAsyncThunk = createAsyncThunk(
     throw ("Mám potíže získat profil.");
   })
 );
-// get client async thunk
+// Get klienti
 export const getClientsAsyncThunk = createAsyncThunk(
   "client/getClientsAsyncThunk",
   catchAsync(async ({ perPage, search, first }, { getState }) => {
@@ -107,7 +114,7 @@ export const getClientsAsyncThunk = createAsyncThunk(
 );
 
 
-// logout async thunk
+// Odstranění klienta
 export const deleteClientAsyncThunk = createAsyncThunk(
   "client/deleteClientAsyncThunk",
   catchAsync(async ({ id, navigate }, { getState }) => {

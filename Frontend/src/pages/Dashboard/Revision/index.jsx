@@ -8,6 +8,11 @@ import { PatternIcon } from "utils/icons";
 import { StepHeader } from "components/SteperHeader";
 import { useTheme } from "@emotion/react";
 
+/**
+  * Komponenta výběru typu revize
+  * @return {} komponenta
+  */
+
 export const Revision = () => {
   const steps = [
     "Údaje o klientovi",

@@ -14,6 +14,15 @@ import ReactSignatureCanvas from "react-signature-canvas";
 import { useTheme } from "@emotion/react";
 import { BlurryDialogModal } from "utils/BlurryDialogModal";
 
+
+/**
+  * Modal k vytvoření a uložení podpisu
+  *
+  * @param {setSignImg} x 
+  * @return {} komponenta
+  */
+
+
 export const SignatureModal = ({ setSignImg }) => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const theme = useTheme();

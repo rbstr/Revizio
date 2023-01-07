@@ -3,6 +3,14 @@ import { ThemeProvider, createTheme, useMediaQuery } from "@mui/material";
 import useLocalStorageState from "hooks/useLocalStorageState";
 import shadows from "@mui/material/styles/shadows";
 
+
+/**
+  * Context pro definování stylu
+  *
+  * 
+  */
+
+
 const ThemeContext = createContext({ toggleColorMode: () => { } });
 
 export const ThemeContextProvider = ({ children }) => {
@@ -13,7 +21,7 @@ export const ThemeContextProvider = ({ children }) => {
     prefersDarkMode ? "light" : "light"
   );
 
-  //console.log(mode)
+ 
 
   const colorMode = useMemo(
     () => ({
@@ -27,7 +35,7 @@ export const ThemeContextProvider = ({ children }) => {
 
   function setThemeColor() {
     var metaThemeColor = document.querySelector("meta[name=theme-color]");
-    //console.log(metaThemeColor.getAttribute("content"));
+  
     if (metaThemeColor.getAttribute("content") === "#ffff") {
       metaThemeColor.setAttribute("content", "#181818");
     } else {

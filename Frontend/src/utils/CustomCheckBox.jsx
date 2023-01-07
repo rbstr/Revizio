@@ -3,6 +3,12 @@ import Box from "@mui/material/Box";
 import { Checkbox, FormControlLabel, Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
 
+/**
+  * Komponenta pro vlastní checkbox
+  *
+  * @return {} komponenta
+  */
+
 export const CustomCheckBox = ({ icon, label, checked, onChange }) => {
   const theme = useTheme();
   return (

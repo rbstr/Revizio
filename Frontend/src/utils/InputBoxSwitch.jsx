@@ -5,6 +5,13 @@ import React from "react";
 import { CustomSwitch } from "./CustomSwitch";
 import { useMediaQuery } from "@mui/material";
 
+/**
+  * Komponenta custom switche
+  *
+  * @return {} komponenta
+  */
+
+
 export const InputBoxSwitch = ({ title, icon, checked, ...props }) => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const theme = useTheme();

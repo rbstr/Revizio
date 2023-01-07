@@ -27,6 +27,12 @@ import { BlurryDialogModal } from "utils/BlurryDialogModal";
 import styled from "@emotion/styled";
 import { InputAdornment } from '@mui/material';
 
+
+/**
+  * Komponenta pro tlakovou zkoušku
+  * @return {} komponenta
+  */
+
 export const PresureTestModal = () => {
   const mobileScreen = useMediaQuery("(max-width:600px)");
   const theme = useTheme();

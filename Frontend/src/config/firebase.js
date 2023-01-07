@@ -5,6 +5,13 @@ import { getStorage } from "firebase/storage";
 import { getMessaging } from "firebase/messaging";
 import { enableIndexedDbPersistence } from "firebase/firestore"
 
+
+/**
+  * Nastavení Firebase účtu
+  *
+  */
+
+
 const firebaseConfig = {
   apiKey: "//",
   authDomain: "//",
