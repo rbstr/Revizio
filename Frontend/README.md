@@ -1,5 +1,17 @@
 # Frontend aplikace
 
+###Použité technologie
+- React JS
+- Redux
+- Redux Toolkit
+- Bootstrap
+- Material UI
+- Sass
+- Yup
+- PDF-Lib
+- SendGrid
+- Chart.js
+
 ## Struktura
 
 - `src/Authentication` obsahuje autentizaci uživatelů (registrace, přihlášení, zapomenuté heslo)
